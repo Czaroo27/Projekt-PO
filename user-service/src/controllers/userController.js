@@ -1,6 +1,6 @@
 const userService = require("../services/userService");
 
-exports.getAllusers = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
   try {
     const users = await userService.getAllUsers();
     res.json(users);
@@ -39,7 +39,7 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try {
     await userService.deleteUser(req.params.id);
-    res.json({ message: "User deleted successfully" });
+    res.json({ message: "User zostal usuniety" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

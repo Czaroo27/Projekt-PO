@@ -9,5 +9,20 @@ exports.getUserById = (id) => {
 };
 
 exports.createUser = (userData) => {
-  return;
+  const newUser = { id: newId++, ...userData };
+  user.push(newUser);
+  return newUser;
+};
+
+exports.updateUser = (id, updatedData) => {
+  const userIndex = users.findIndex((user) => user.id === id);
+  if (userIndex === -1) return null;
+
+  users[userIndex] = { ...users[userIndex], ...updatedData };
+  return users[userIndex];
+};
+exports.deleteUser = (id) => {
+  const initialLength = users.length;
+  users = users.filter((user) => user.id !== id);
+  return users.length < initialLength;
 };
